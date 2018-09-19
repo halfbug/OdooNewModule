@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <!-- After installation of the modules, open the delivery method menu -->
+  <!-- call this action from your own carrier module -->
+  <record model="delivery.schedule" id="add_form_view_inherited">
+            <field name="name">res.group.form.view.inherited</field>
+            <field name="model">res.groups</field>
+            <field name="inherit_id" ref="base.view_groups_form" />
+            <!-- <field name="groups_id" eval="[(6, 0, [ref('obe_core.obe_coordinator')])]"/> -->
+            <field name="priority" eval="15"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <field  name="field_1"/>
+                </xpath>
+
+                <xpath expr="//field[@name='user_name']" position="after">
+                    <field  name="field_2"/>
+                </xpath>
+
+            </field>
+        </record>
+</odoo>
